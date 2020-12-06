@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    button{
+        color: blue;
+        background-color: red;
+        width: 60px;
+        height: 50px;
+        border-radius: 40px;
+        position: relative;
+    }
+    button:hover{
+        background-color: aqua;
+    }
+    video{
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        min-width: 100%;
+        min-height: 100%;
+   }
+</style>
+<body>
+    <video autoplay muted id="vid"></video>
+    <button onclick="change()">black</button>
+    <button onclick="change_1()">blur</button>
+    <button onclick="change_2()">clarify</button>
+    <button onclick="change_3()">Normal</button>
+    <button onclick="change_4()">beast</button>
+    <button onclick="change_5()">contrast</button>
+    <button onclick="change_6()">ghost</button>
+    <button onclick="change_7()">saturate</button>
+</body>
+
+<script>
+    navigator.mediaDevices.getUserMedia({
+        video:true
+    })
+    .then(function (stream) {
+        document.getElementById("vid").srcObject = stream;
+    })
+    function change() {
+        document.getElementById("vid").style.filter = "grayscale(100%)";
+    }
+    function change_1() {
+        document.getElementById("vid").style.filter = "blur(5px)";
+    }
+    function change_2() {
+        document.getElementById("vid").style.filter = "brightness(200%)";
+    }
+    function change_3() {
+        document.getElementById("vid").style.filter = "None";
+    }
+    function change_4() {
+        document.getElementById("vid").style.filter = "hue-rotate(180deg)";
+    }
+    function change_5() {
+        document.getElementById("vid").style.filter = "contrast(200%)";
+    }
+    function change_6() {
+        document.getElementById("vid").style.filter = "invert(100%)";
+    }
+    function change_7() {
+        document.getElementById("vid").style.filter = "saturate(8)";
+    }
+    
+                
+</script>
+</html>
